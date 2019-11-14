@@ -6,7 +6,9 @@ class Hello extends Component {
     super(props);
     this.state = {
       term: '',
-      arr:[]
+      arr:[],
+      number: this.props.no,
+      count: this.props.no
     };
   }
 
@@ -22,7 +24,12 @@ class Hello extends Component {
       arr:[...this.state.arr,this.state.term]
     });
   }
-
+  handleIncrement = () => {
+  this.setState({ count: this.state.count + 1 })
+}
+inc = () =>{
+  this.setState({ number: this.state.number + 1})
+}
   render() {
     return (
       <div>
@@ -30,6 +37,9 @@ class Hello extends Component {
           <input value={this.state.term} onChange={this.onChange} />
           <button>Submit</button>
         </form>
+        <br/>
+        <h4>{this.state.number}</h4>
+        <button onClick={this.inc}>Click</button>
          <div>
           {
             this.state.arr.map((item,index)=>{
