@@ -11,13 +11,19 @@ class Hello extends Component {
       count: this.props.no
     };
   }
-componentDidUpdate(prevProps,prevState)
-{
-  if(prevProps.no!==prevState.number)
-  {
-    this.setState({number:prevProps.no})
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.no !== this.props.number) {
+      this.setState({number: nextProps.no});
+    }
   }
-}
+  //componentDidUpdate is failing in some cases
+// componentDidUpdate(prevProps,prevState)
+// {
+//   if(prevProps.no!==prevState.number)
+//   {
+//     this.setState({number:prevProps.no})
+//   }
+// }
 
   onChange = (event) => {
     console.log(event.target.value);
