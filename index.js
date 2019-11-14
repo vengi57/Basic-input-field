@@ -8,14 +8,22 @@ class App extends Component {
     super();
     this.state = {
       name: 'React',
-      number:4
+      number:0
     };
   }
-
+onButtonClick = () =>{
+  this.setState({ number: this.state.number + 1})
+}
   render() {
     return (
       <div>
+      <h2>{this.state.number}</h2>
+      <button onClick={this.onButtonClick}>Click</button>
+      <br/>
+      <br/>
+      <h2>Hello Component</h2>
         <Hello no ={this.state.number}/>
+        
         <p>
           Start editing to see some magic happen :)
         </p>

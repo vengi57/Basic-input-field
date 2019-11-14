@@ -11,6 +11,13 @@ class Hello extends Component {
       count: this.props.no
     };
   }
+componentDidUpdate(prevProps,prevState)
+{
+  if(prevProps.no!==prevState.number)
+  {
+    this.setState({number:prevProps.no})
+  }
+}
 
   onChange = (event) => {
     console.log(event.target.value);
