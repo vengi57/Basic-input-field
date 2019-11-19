@@ -12,7 +12,7 @@ class Hello extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    if(nextProps.no !== this.props.number) {
+    if(nextProps.no !== this.state.number) {
       this.setState({number: nextProps.no});
     }
   }
@@ -26,6 +26,7 @@ class Hello extends Component {
 // }
 
   onChange = (event) => {
+    event.preventDefault();
     console.log(event.target.value);
     this.setState({ term: event.target.value });
   }
